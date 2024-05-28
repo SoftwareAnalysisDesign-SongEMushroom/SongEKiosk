@@ -163,7 +163,10 @@ public class Test extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose(); // 현재 창 닫기
-                new Test2(menuList, totalPrice, totalCount, singleMenuItems);
+                List<MenuItem> allMenuItems = new ArrayList<>();
+                allMenuItems.addAll(singleMenuItems);
+                allMenuItems.addAll(setMenuItems);
+                new Test2(menuList, totalPrice, totalCount, allMenuItems); // 모든 메뉴 항목을 전달
             }
         });
         panel.add(paymentButton, BorderLayout.EAST);

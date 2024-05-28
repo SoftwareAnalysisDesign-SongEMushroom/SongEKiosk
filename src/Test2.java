@@ -13,14 +13,14 @@ public class Test2 extends JFrame {
     private JTextField totalCountField;
     private int totalPrice;
     private int totalCount;
-    private List<MenuItem> menuItems;
+    private List<MenuItem> allMenuItems; // 모든 메뉴 항목을 포함하는 리스트
     private Map<String, Integer> menuList;
 
-    public Test2(Map<String, Integer> menuList, int totalPrice, int totalCount, List<MenuItem> menuItems) {
+    public Test2(Map<String, Integer> menuList, int totalPrice, int totalCount, List<MenuItem> allMenuItems) {
         this.menuList = menuList;
         this.totalPrice = totalPrice;
         this.totalCount = totalCount;
-        this.menuItems = menuItems;
+        this.allMenuItems = allMenuItems; // 모든 메뉴 항목을 포함하는 리스트로 초기화
 
         setTitle("결제 화면");
         setSize(400, 700);
@@ -102,7 +102,7 @@ public class Test2 extends JFrame {
     }
 
     private int getPriceByName(String itemName) {
-        for (MenuItem menuItem : menuItems) {
+        for (MenuItem menuItem : allMenuItems) { // 모든 메뉴 항목을 검색
             if (menuItem.getName().equals(itemName)) {
                 return menuItem.getPrice();
             }
